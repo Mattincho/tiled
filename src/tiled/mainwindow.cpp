@@ -71,6 +71,7 @@
 #include "tilesetdocument.h"
 #include "tileseteditor.h"
 #include "tilesetmanager.h"
+#include "timelinedock.h"
 #include "tmxmapformat.h"
 #include "undodock.h"
 #include "utils.h"
@@ -382,14 +383,17 @@ MainWindow::MainWindow(QWidget *parent, Qt::WindowFlags flags)
     mProjectDock = new ProjectDock(this);   // uses some actions registered above
     mConsoleDock = new ConsoleDock(this);
     mIssuesDock = new IssuesDock(this);
+    mTimelineDock = new TimelineDock(this);
 
     addDockWidget(Qt::LeftDockWidgetArea, mProjectDock);
     addDockWidget(Qt::BottomDockWidgetArea, mConsoleDock);
     addDockWidget(Qt::BottomDockWidgetArea, mIssuesDock);
     tabifyDockWidget(mConsoleDock, mIssuesDock);
+    addDockWidget(Qt::BottomDockWidgetArea, mTimelineDock);
 
     mConsoleDock->setVisible(false);
     mIssuesDock->setVisible(false);
+    mTimelineDock->setVisible(true);
 
     mMapEditor = new MapEditor;
     mTilesetEditor = new TilesetEditor;
@@ -1901,13 +1905,16 @@ void MainWindow::resetToDefaultLayout()
     mProjectDock->setFloating(false);
     mConsoleDock->setFloating(false);
     mIssuesDock->setFloating(false);
+    mTimelineDock->setFloating(false);
     addDockWidget(Qt::LeftDockWidgetArea, mProjectDock);
     addDockWidget(Qt::BottomDockWidgetArea, mConsoleDock);
     addDockWidget(Qt::BottomDockWidgetArea, mIssuesDock);
+    addDockWidget(Qt::BottomDockWidgetArea, mTimelineDock);
     mProjectDock->setVisible(true);
     mConsoleDock->setVisible(false);
     mIssuesDock->setVisible(false);
     tabifyDockWidget(mConsoleDock, mIssuesDock);
+    mTimelineDock->setVisible(true);
 
     // Reset the layout of the current editor
     if (auto editor = mDocumentManager->currentEditor())

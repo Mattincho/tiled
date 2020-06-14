@@ -524,6 +524,8 @@ QtGuiApplication {
         "tilestampmodel.h",
         "tilestampsdock.cpp",
         "tilestampsdock.h",
+        "timelinedock.cpp",
+        "timelinedock.h",
         "tmxmapformat.cpp",
         "tmxmapformat.h",
         "toolmanager.cpp",

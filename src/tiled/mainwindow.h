@@ -63,6 +63,7 @@ class ProjectDock;
 class ProjectModel;
 class TilesetDocument;
 class TilesetEditor;
+class TimelineDock;
 class Zoomable;
 
 /**
@@ -233,6 +234,7 @@ private:
     IssuesDock *mIssuesDock;
     ObjectTypesEditor *mObjectTypesEditor;
     QPointer<LocatorWidget> mLocatorWidget;
+    TimelineDock *mTimelineDock;
 
     QAction *mRecentFiles[Preferences::MaxRecentFiles];
 
